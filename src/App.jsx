@@ -7,10 +7,12 @@ import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import EventDetails from "./pages/EventDetails"
 import NotFound from "./pages/NotFound"
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
