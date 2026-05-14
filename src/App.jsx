@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard"
 import EventDetails from "./pages/EventDetails"
 import NotFound from "./pages/NotFound"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/event/:id" element={<EventDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
