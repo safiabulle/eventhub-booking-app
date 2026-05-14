@@ -11,6 +11,9 @@ function Navbar() {
         <div className="flex gap-6">
           <Link to="/">Home</Link>
           <Link to="/events">Events</Link>
+          <Link to="/dashboard" className="hover:text-indigo-600">
+          Dashboard
+          </Link>
           <Link to="/login">Login</Link>
         </div>
       </div>
