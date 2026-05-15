@@ -1,22 +1,75 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <nav className="bg-white shadow-md px-6 py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-indigo-600">
+    <nav className="bg-white shadow-md">
+
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <Link
+          to="/"
+          className="text-3xl font-bold text-indigo-600"
+        >
           EventHub
         </Link>
 
-        <div className="flex gap-6">
-          <Link to="/">Home</Link>
-          <Link to="/events">Events</Link>
-          <Link to="/dashboard" className="hover:text-indigo-600">
-          Dashboard
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-6 text-gray-700 font-medium">
+
+          <Link to="/" className="hover:text-indigo-600">
+            Home
           </Link>
-          <Link to="/login">Login</Link>
+
+          <Link to="/events" className="hover:text-indigo-600">
+            Events
+          </Link>
+
+          <Link to="/dashboard" className="hover:text-indigo-600">
+            Dashboard
+          </Link>
+
+          <Link to="/login" className="hover:text-indigo-600">
+            Login
+          </Link>
+
         </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-3xl"
+        >
+          ☰
+        </button>
+
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden px-6 pb-4 flex flex-col gap-4 text-gray-700 font-medium">
+
+          <Link to="/" onClick={() => setIsOpen(false)}>
+            Home
+          </Link>
+
+          <Link to="/events" onClick={() => setIsOpen(false)}>
+            Events
+          </Link>
+
+          <Link to="/dashboard" onClick={() => setIsOpen(false)}>
+            Dashboard
+          </Link>
+
+          <Link to="/login" onClick={() => setIsOpen(false)}>
+            Login
+          </Link>
+
+        </div>
+      )}
+
     </nav>
   )
 }
