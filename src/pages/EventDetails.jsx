@@ -1,12 +1,67 @@
 import { useParams } from "react-router-dom"
+
 import events from "../data/events"
+
+import { useAuth } from "../context/AuthContext"
+
+import {
+  db,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+} from "../firebase/firestore"
 
 function EventDetails() {
   const { id } = useParams()
 
+  const { user } = useAuth()
+
   const event = events.find(
     (event) => event.id === Number(id)
   )
+
+  async function handleBooking() {
+  if (!user) {
+    alert("Please login first")
+    return
+  }
+
+  try {
+    const q = query(
+      collection(db, "bookings"),
+      where("userId", "==", user.uid),
+      where("eventId", "==", event.id)
+    )
+
+    const querySnapshot = await getDocs(q)
+
+    if (!querySnapshot.empty) {
+      alert("You already booked this event")
+      return
+    }
+
+    await addDoc(
+      collection(db, "bookings"),
+      {
+        userId: user.uid,
+        userEmail: user.email,
+        eventId: event.id,
+        title: event.title,
+        location: event.location,
+        date: event.date,
+        image: event.image,
+        bookedAt: new Date(),
+      }
+    )
+
+    alert("Event booked successfully!")
+
+  } catch (error) {
+    console.log(error)
+  }
+}
 
   if (!event) {
     return (
@@ -40,14 +95,17 @@ function EventDetails() {
           </p>
 
           <p className="text-gray-600 mb-6">
-            {event.date}
+             {event.date}
           </p>
 
           <p className="text-gray-700 leading-7 mb-8">
             {event.description}
           </p>
 
-          <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
+          <button
+            onClick={handleBooking}
+            className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition"
+          >
             Book Event
           </button>
 

@@ -7,9 +7,9 @@ import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import EventDetails from "./pages/EventDetails"
 import NotFound from "./pages/NotFound"
-
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>}/>
         <Route path="/event/:id" element={<EventDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
