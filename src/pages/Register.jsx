@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 import {
   createUserWithEmailAndPassword,
+  signOut,
 } from "firebase/auth"
 
 import { auth } from "../firebase/auth"
@@ -22,13 +23,15 @@ function Register() {
   setLoading(true)
 
   try {
-    await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    )
+   await createUserWithEmailAndPassword(
+  auth,
+  email,
+  password
+)
 
-    navigate("/dashboard")
+await signOut(auth)
+
+navigate("/login")
 
   } catch (err) {
     setError(err.message)
