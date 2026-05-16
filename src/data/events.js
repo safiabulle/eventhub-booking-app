@@ -2,6 +2,7 @@ const events = [
   {
     id: 1,
     title: "Tech Conference 2026",
+    category: "Technology",
     date: "June 15, 2026",
     location: "Nairobi, Kenya",
     image:
@@ -13,6 +14,7 @@ const events = [
   {
     id: 2,
     title: "Live Concert Experience",
+    category: "Entertainment",
     date: "July 2, 2026",
     location: "Mombasa, Kenya",
     image:
@@ -24,6 +26,7 @@ const events = [
   {
     id: 3,
     title: "Business Leadership Summit",
+    category: "Business",
     date: "August 10, 2026",
     location: "Kisumu, Kenya",
     image:
@@ -35,6 +38,7 @@ const events = [
   {
     id: 4,
     title: "Startup Networking Meetup",
+    category: "Business",
     date: "September 5, 2026",
     location: "Nakuru, Kenya",
     image:
@@ -46,6 +50,7 @@ const events = [
   {
     id: 5,
     title: "Future Tech Expo",
+    category: "Technology",
     date: "October 18, 2026",
     location: "Eldoret, Kenya",
     image:
@@ -57,6 +62,7 @@ const events = [
   {
     id: 6,
     title: "Naivasha Adventure Trip",
+    category: "Adventure",
     date: "November 12, 2026",
     location: "Naivasha, Kenya",
     image:
@@ -68,6 +74,7 @@ const events = [
   {
     id: 7,
     title: "Sip and Paint Night",
+    category: "Social",
     date: "December 3, 2026",
     location: "Nairobi, Kenya",
     image:
@@ -79,6 +86,7 @@ const events = [
   {
     id: 8,
     title: "Mountain Hiking Adventure",
+    category: "Adventure",
     date: "December 15, 2026",
     location: "Mount Kenya, Kenya",
     image:
@@ -90,6 +98,7 @@ const events = [
   {
     id: 9,
     title: "Weekend Camping Experience",
+    category: "Adventure",
     date: "January 8, 2027",
     location: "Nanyuki, Kenya",
     image:

@@ -15,27 +15,32 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
-  async function handleSubmit(e) {
-    e.preventDefault()
+ async function handleSubmit(e) {
+  e.preventDefault()
 
-    setError("")
+  setError("")
+  setLoading(true)
 
-    try {
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      )
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    )
 
-      navigate("/dashboard")
+    navigate("/dashboard")
 
-    } catch (err) {
-      setError(err.message)
-    }
+  } catch (err) {
+    setError(err.message)
+
+  } finally {
+    setLoading(false)
   }
+}
 
   async function handleGoogleLogin() {
     try {
@@ -97,7 +102,7 @@ function Login() {
             type="submit"
             className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
         </form>

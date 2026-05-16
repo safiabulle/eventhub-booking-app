@@ -11,27 +11,32 @@ function Register() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
   async function handleSubmit(e) {
-    e.preventDefault()
+  e.preventDefault()
 
-    setError("")
+  setError("")
+  setLoading(true)
 
-    try {
-      await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      )
+  try {
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    )
 
-      navigate("/dashboard")
+    navigate("/dashboard")
 
-    } catch (err) {
-      setError(err.message)
-    }
+  } catch (err) {
+    setError(err.message)
+
+  } finally {
+    setLoading(false)
   }
+}
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-100 px-6">
@@ -79,7 +84,7 @@ function Register() {
             type="submit"
             className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
           >
-            Register
+           {loading ? "Creating Account..." : "Register"}
           </button>
 
         </form>

@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 
 import events from "../data/events"
@@ -13,10 +14,13 @@ import {
   where,
 } from "../firebase/firestore"
 
+
 function EventDetails() {
   const { id } = useParams()
 
   const { user } = useAuth()
+
+const [loading, setLoading] = useState(false)
 
   const event = events.find(
     (event) => event.id === Number(id)
@@ -27,6 +31,7 @@ function EventDetails() {
     alert("Please login first")
     return
   }
+  setLoading(true)
 
   try {
     const q = query(
@@ -60,7 +65,10 @@ function EventDetails() {
 
   } catch (error) {
     console.log(error)
-  }
+    
+  }finally {
+      setLoading(false)
+      }
 }
 
   if (!event) {
@@ -106,7 +114,7 @@ function EventDetails() {
             onClick={handleBooking}
             className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition"
           >
-            Book Event
+            {loading ? "Booking..." : "Book Event"}
           </button>
 
         </div>
