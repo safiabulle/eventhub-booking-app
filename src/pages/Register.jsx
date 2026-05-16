@@ -1,69 +1,100 @@
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+
+import {
+  createUserWithEmailAndPassword,
+} from "firebase/auth"
+
+import { auth } from "../firebase/auth"
 
 function Register() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+
+  const navigate = useNavigate()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    setError("")
+
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+
+      navigate("/dashboard")
+
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
   return (
-    <section className="min-h-screen bg-gray-100 flex items-center justify-center px-6">
-      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <section className="min-h-screen flex items-center justify-center bg-gray-100 px-6">
+
+      <div className="bg-white p-8 rounded-3xl shadow-lg w-full max-w-md">
 
         <h1 className="text-3xl font-bold text-center mb-6">
           Create Account
         </h1>
 
-        <form className="space-y-5">
+        {error && (
+          <p className="text-red-500 mb-4 text-sm">
+            {error}
+          </p>
+        )}
 
-          <div>
-            <label className="block mb-2 font-medium">
-              Full Name
-            </label>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-5"
+        >
 
-            <input
-              type="text"
-              placeholder="Enter your full name"
-              className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+            className="w-full border p-3 rounded-xl"
+            required
+          />
 
-          <div>
-            <label className="block mb-2 font-medium">
-              Email
-            </label>
-
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-2 font-medium">
-              Password
-            </label>
-
-            <input
-              type="password"
-              placeholder="Create password"
-              className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+            className="w-full border p-3 rounded-xl"
+            required
+          />
 
           <button
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition"
+            type="submit"
+            className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
           >
             Register
           </button>
 
-          <p className="text-center text-gray-600">
-            Already have an account?{" "}
-            <Link
-              to="/login"
-              className="text-indigo-600 font-medium"
-            >
-              Login
-            </Link>
-          </p>
-
         </form>
+
+        <p className="text-center mt-6 text-gray-600">
+          Already have an account?{" "}
+
+          <Link
+            to="/login"
+            className="text-indigo-600 font-medium"
+          >
+            Login
+          </Link>
+        </p>
+
       </div>
     </section>
   )
