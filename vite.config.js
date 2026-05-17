@@ -3,7 +3,10 @@ import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  base: "/eventhub-booking-app/",
+  base:
+    process.env.NODE_ENV === "production"
+      ? "/eventhub-booking-app/"
+      : "/",
 
   plugins: [
     react(),
