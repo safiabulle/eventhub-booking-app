@@ -21,7 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/events/:id" element={<EventDetails />} />
+        <Route path="/event/:id" element={<EventDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
