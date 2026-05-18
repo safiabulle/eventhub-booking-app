@@ -42,7 +42,7 @@ navigate("/login")
 }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-100 px-6">
+    <section className="min-h-screen flex items-center justify-center bg-blue-100 px-6">
 
       <div className="bg-white p-8 rounded-3xl shadow-lg w-full max-w-md">
 
@@ -85,19 +85,19 @@ navigate("/login")
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
+            className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
           >
            {loading ? "Creating Account..." : "Register"}
           </button>
 
         </form>
 
-        <p className="text-center mt-6 text-gray-600">
+        <p className="text-center mt-6 text-blue-600">
           Already have an account?{" "}
 
           <Link
             to="/login"
-            className="text-indigo-600 font-medium"
+            className="text-blue-600 font-medium"
           >
             Login
           </Link>

@@ -142,7 +142,7 @@
 function EventCard({ event }) {
   return (
     &lt;Link to={`/event/${event.id}`}&gt;
-      &lt;div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition hover:-translate-y-1 duration-300"&gt;
+      &lt;div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition hover:-tranblue-y-1 duration-300"&gt;
 &nbsp;
         &lt;img
           src={event.image}
@@ -156,15 +156,15 @@ function EventCard({ event }) {
             {event.title}
           &lt;/h2&gt;
 &nbsp;
-          &lt;p className="text-gray-600 mb-2"&gt;
+          &lt;p className="text-blue-600 mb-2"&gt;
             {event.date}
           &lt;/p&gt;
 &nbsp;
-          &lt;p className="text-gray-500 mb-4"&gt;
+          &lt;p className="text-blue-500 mb-4"&gt;
             {event.location}
           &lt;/p&gt;
 &nbsp;
-          &lt;button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"&gt;
+          &lt;button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"&gt;
             View Details
           &lt;/button&gt;
 &nbsp;

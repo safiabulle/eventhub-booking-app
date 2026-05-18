@@ -57,7 +57,7 @@ function Login() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-100 px-6">
+    <section className="min-h-screen flex items-center justify-center bg-blue-100 px-6">
 
       <div className="bg-white p-8 rounded-3xl shadow-lg w-full max-w-md">
 
@@ -100,7 +100,7 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition"
+            className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
@@ -109,17 +109,17 @@ function Login() {
 
         <button
           onClick={handleGoogleLogin}
-          className="w-full mt-4 border py-3 rounded-xl hover:bg-gray-100 transition"
+          className="w-full mt-4 border py-3 rounded-xl hover:bg-blue-100 transition"
         >
           Continue with Google
         </button>
 
-        <p className="text-center mt-6 text-gray-600">
+        <p className="text-center mt-6 text-blue-600">
           Don’t have an account?{" "}
 
           <Link
             to="/register"
-            className="text-indigo-600 font-medium"
+            className="text-blue-600 font-medium"
           >
             Register
           </Link>

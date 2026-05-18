@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function EventCard({ event }) {
   return (
     <Link to={`/event/${event.id}`}>
-      <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition hover:-translate-y-1 duration-300">
+      <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition hover:-tranblue-y-1 duration-300">
 
         <img
           src={event.image}
@@ -17,15 +17,15 @@ function EventCard({ event }) {
             {event.title}
           </h2>
 
-          <p className="text-gray-600 mb-2">
+          <p className="text-blue-600 mb-2">
             {event.date}
           </p>
 
-          <p className="text-gray-500 mb-4">
+          <p className="text-blue-500 mb-4">
             {event.location}
           </p>
 
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
             View Details
           </button>
 

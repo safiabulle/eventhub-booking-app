@@ -11,29 +11,29 @@ function Navbar() {
 
         <Link
           to="/"
-          className="text-3xl font-bold text-indigo-600"
+          className="text-3xl font-bold text-blue-600"
         >
           EventHub
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 text-gray-700 font-medium">
+        <div className="hidden md:flex gap-6 text-blue-700 font-medium">
 
-          <Link to="/" className="hover:text-indigo-600">
+          <Link to="/" className="hover:text-blue-600">
             Home
           </Link>
 
-          <Link to="/events" className="hover:text-indigo-600">
+          <Link to="/events" className="hover:text-blue-600">
             Events
           </Link>
 
-          <Link to="/dashboard" className="hover:text-indigo-600">
+          <Link to="/dashboard" className="hover:text-blue-600">
             Dashboard
           </Link>
 
-          <Link to="/login" className="hover:text-indigo-600">
+          {/*<Link to="/login" className="hover:text-blue-600">
             Login
-          </Link>
+          </Link>*/}
 
         </div>
 
@@ -49,7 +49,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-6 pb-4 flex flex-col gap-4 text-gray-700 font-medium">
+        <div className="md:hidden px-6 pb-4 flex flex-col gap-4 text-blue-700 font-medium">
 
           <Link to="/" onClick={() => setIsOpen(false)}>
             Home

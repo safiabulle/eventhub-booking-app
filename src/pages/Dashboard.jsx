@@ -69,7 +69,7 @@ function Dashboard() {
   }, [user])
 
   return (
-    <section className="min-h-screen bg-gray-100 px-6 py-10">
+    <section className="min-h-screen bg-blue-100 px-6 py-10">
 
       <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-lg p-8">
 
@@ -80,7 +80,7 @@ function Dashboard() {
               Dashboard
             </h1>
 
-            <p className="text-gray-600 mt-2">
+            <p className="text-blue-600 mt-2">
               Welcome back, {user?.email}
             </p>
           </div>
@@ -99,7 +99,7 @@ function Dashboard() {
         </h2>
 
         {bookings.length === 0 ? (
-          <p className="text-gray-600">
+          <p className="text-blue-600">
             No bookings yet.
           </p>
         ) : (
@@ -108,7 +108,7 @@ function Dashboard() {
             {bookings.map((booking) => (
               <div
                 key={booking.id}
-                className="bg-gray-100 rounded-2xl overflow-hidden shadow"
+                className="bg-blue-100 rounded-2xl overflow-hidden shadow"
               >
 
                 <img
@@ -123,11 +123,11 @@ function Dashboard() {
                     {booking.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-blue-600 mb-2">
                      {booking.location}
                   </p>
 
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-blue-600 mb-4">
                     {booking.date}
                   </p>
 

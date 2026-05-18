@@ -82,7 +82,7 @@ const [loading, setLoading] = useState(false)
   }
 
   return (
-    <section className="min-h-screen bg-gray-100 py-10 px-6">
+    <section className="min-h-screen bg-blue-100 py-10 px-6">
 
       <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden">
 
@@ -98,21 +98,21 @@ const [loading, setLoading] = useState(false)
             {event.title}
           </h1>
 
-          <p className="text-gray-600 mb-2">
+          <p className="text-blue-600 mb-2">
             {event.location}
           </p>
 
-          <p className="text-gray-600 mb-6">
+          <p className="text-blue-600 mb-6">
              {event.date}
           </p>
 
-          <p className="text-gray-700 leading-7 mb-8">
+          <p className="text-blue-700 leading-7 mb-8">
             {event.description}
           </p>
 
           <button
             onClick={handleBooking}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition"
+            className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition"
           >
             {loading ? "Booking..." : "Book Event"}
           </button>
