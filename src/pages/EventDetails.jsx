@@ -23,8 +23,8 @@ function EventDetails() {
 const [loading, setLoading] = useState(false)
 
   const event = events.find(
-    (event) => event.id === Number(id)
-  )
+  (event) => String(event.id) === String(id)
+)
 
   async function handleBooking() {
   if (!user) {
